@@ -3,73 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaja Gnanaeswaran</title>
+  <meta name="description" content="Professional profile of Kaja Gnanaeswaran, Master of Health Informatics candidate at the University of Toronto.">
+  <title>Kaja Gnanaeswaran | Health Informatics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,560;9..144,620&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --stage:#EAE4D6; --ink:#12211F; --teal:#1F4E49; --slate:#5C6B68; --line:#D6CFBD; --card:#FBF9F4; --focus:#1F4E49; }
-    @media (prefers-color-scheme: dark) {
-      :root { --stage:#0A1210; --ink:#F2EEE3; --teal:#7FBFB3; --slate:#A9B6B2; --line:#24312E; --card:#142321; --focus:#7FBFB3; }
+    :root {
+      --background:#eef5f2; --surface:rgba(255,255,255,.88); --ink:#102d2a;
+      --muted:#5f7470; --brand:#176b61; --brand-dark:#0d4c45; --accent:#d9eee8;
+      --border:rgba(23,107,97,.16); --shadow:0 24px 70px rgba(16,62,56,.14);
     }
     * { box-sizing:border-box; }
-    html, body { margin:0; min-height:100%; background:var(--stage); color:var(--ink); }
-    body { display:flex; justify-content:center; align-items:flex-start; padding:6vh 20px; font-family:'IBM Plex Sans',sans-serif; }
-    .card { width:100%; max-width:400px; overflow:hidden; background:var(--card); border:1px solid var(--line); border-radius:22px; box-shadow:0 1px 2px rgba(18,33,31,.04); animation:rise .6s ease-out both; }
-    @keyframes rise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-    @media (prefers-reduced-motion:reduce) { .card { animation:none; } }
-    .photo-wrap { position:relative; width:100%; aspect-ratio:4/5; overflow:hidden; background:var(--teal); }
-    .photo-wrap img { display:block; width:100%; height:100%; object-fit:cover; object-position:50% 18%; filter:grayscale(1) contrast(1.08) brightness(1.06); }
-    .photo-wrap::after { content:''; position:absolute; inset:0; background:linear-gradient(165deg,rgba(31,78,73,.72),rgba(18,33,31,.35) 55%,rgba(18,33,31,.7)); mix-blend-mode:multiply; pointer-events:none; }
-    .body-content { padding:28px 30px 30px; }
-    .name { margin:0 0 6px; color:var(--ink); font:560 28px/1.15 'Fraunces',serif; letter-spacing:-.01em; }
-    .title { margin:0 0 20px; color:var(--teal); font-size:14.5px; font-weight:500; line-height:1.4; }
-    .rule { margin:0 0 18px; border:0; border-top:1px solid var(--line); }
-    .bio { max-width:32ch; margin:0 0 26px; color:var(--slate); font-size:14.5px; line-height:1.6; }
-    .resume-section { margin:0 0 22px; }
-    .resume-section h2 { margin:0 0 6px; color:var(--ink); font:560 20px 'Fraunces',serif; }
-    .resume-section p { margin:0 0 14px; color:var(--slate); font-size:13.5px; line-height:1.5; }
-    .actions { display:flex; flex-direction:column; gap:10px; margin-bottom:22px; }
-    .btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:13px 20px; border-radius:999px; font-size:14.5px; font-weight:500; text-decoration:none; transition:background .15s,color .15s,border-color .15s; }
-    .btn:focus-visible { outline:2px solid var(--focus); outline-offset:2px; }
-    .btn-primary { background:var(--teal); color:var(--card); border:1px solid var(--teal); }
-    .btn-primary:hover { background:var(--ink); border-color:var(--ink); }
-    .btn-secondary { background:transparent; color:var(--ink); border:1px solid var(--line); }
-    .btn-secondary:hover { color:var(--teal); border-color:var(--teal); }
-    .footer { display:flex; align-items:center; justify-content:space-between; gap:12px; color:var(--slate); font-size:12.5px; }
-    .footer a { color:var(--slate); text-decoration:none; border-bottom:1px solid var(--line); }
-    .footer a:hover { color:var(--teal); border-color:var(--teal); }
+    html { scroll-behavior:smooth; }
+    body { margin:0; min-height:100vh; color:var(--ink); font-family:'DM Sans',sans-serif; background:radial-gradient(circle at 8% 8%,#d3ece5 0,transparent 32%),linear-gradient(135deg,var(--background),#f8fbfa 70%); }
+    a { color:inherit; }
+    .page { width:min(100% - 32px, 1080px); margin:0 auto; padding:26px 0 42px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:48px; }
+    .mark { display:flex; align-items:center; gap:10px; color:var(--brand-dark); font-weight:700; letter-spacing:.04em; }
+    .mark-icon { display:grid; place-items:center; width:34px; height:34px; border-radius:11px; color:#fff; background:var(--brand); font-family:Georgia,serif; font-size:19px; }
+    .availability { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:13px; }
+    .availability::before { content:''; width:8px; height:8px; border-radius:50%; background:#39a879; box-shadow:0 0 0 4px rgba(57,168,121,.13); }
+    .hero { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); align-items:center; gap:72px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; margin:0 0 18px; color:var(--brand); font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .eyebrow::before { content:''; width:28px; height:2px; background:var(--brand); }
+    h1,h2 { font-family:'Playfair Display',Georgia,serif; }
+    h1 { max-width:650px; margin:0; font-size:clamp(44px,7vw,78px); line-height:1.02; letter-spacing:-.045em; }
+    .lead { max-width:590px; margin:24px 0 0; color:var(--muted); font-size:18px; line-height:1.7; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:48px; padding:0 19px; border:1px solid var(--brand); border-radius:13px; font-size:14px; font-weight:700; text-decoration:none; transition:transform .2s,background .2s,box-shadow .2s; }
+    .button:hover { transform:translateY(-2px); box-shadow:0 8px 18px rgba(23,107,97,.16); }
+    .button-primary { color:#fff; background:var(--brand); }
+    .button-primary:hover { background:var(--brand-dark); }
+    .button-light { color:var(--brand-dark); background:rgba(255,255,255,.55); border-color:var(--border); }
+    .button-light:hover { background:#fff; }
+    .photo-card { position:relative; padding:13px; border:1px solid rgba(255,255,255,.9); border-radius:28px; background:rgba(255,255,255,.5); box-shadow:var(--shadow); transform:rotate(2deg); }
+    .photo-card img { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 18%; border-radius:20px; filter:saturate(.86) contrast(1.04); }
+    .photo-label { position:absolute; right:-21px; bottom:30px; padding:12px 16px; border:1px solid var(--border); border-radius:12px; color:var(--brand-dark); background:rgba(255,255,255,.94); box-shadow:0 10px 28px rgba(16,62,56,.13); font-size:12px; font-weight:700; letter-spacing:.04em; transform:rotate(-2deg); }
+    .content-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:22px; margin-top:92px; }
+    .panel { padding:30px; border:1px solid var(--border); border-radius:22px; background:var(--surface); box-shadow:0 10px 35px rgba(16,62,56,.05); backdrop-filter:blur(10px); }
+    .panel h2 { margin:0 0 13px; font-size:27px; letter-spacing:-.02em; }
+    .panel p { margin:0; color:var(--muted); line-height:1.7; }
+    .tags { display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; }
+    .tag { padding:8px 11px; border-radius:9px; color:var(--brand-dark); background:var(--accent); font-size:12px; font-weight:700; }
+    .resume-panel { background:var(--brand-dark); color:#fff; }
+    .resume-panel p { color:rgba(255,255,255,.72); }
+    .resume-panel .button-primary { color:var(--brand-dark); background:#fff; border-color:#fff; }
+    .resume-panel .button-primary:hover { background:#e8f5f1; }
+    .resume-panel .button-light { color:#fff; background:transparent; border-color:rgba(255,255,255,.38); }
+    .resume-panel .button-light:hover { background:rgba(255,255,255,.1); }
+    .resume-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:23px; }
+    .contact { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-top:54px; padding-top:20px; border-top:1px solid var(--border); color:var(--muted); font-size:13px; }
+    .contact a { color:var(--brand-dark); font-weight:700; text-decoration:none; }
+    .contact a:hover { text-decoration:underline; }
+    :focus-visible { outline:3px solid #f4a261; outline-offset:4px; }
+    @media (max-width:760px) { .topbar { margin-bottom:34px; } .hero { grid-template-columns:1fr; gap:42px; } .photo-card { width:min(100%,430px); margin:0 auto; } .content-grid { grid-template-columns:1fr; margin-top:64px; } .lead { font-size:16px; } }
+    @media (max-width:450px) { .page { width:min(100% - 24px,1080px); padding-top:18px; } .availability { font-size:11px; } .photo-label { right:8px; bottom:22px; } .panel { padding:24px; } .contact { align-items:flex-start; flex-direction:column; gap:8px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; animation:none!important; } }
   </style>
 </head>
 <body>
-  <main class="card">
-    <div class="photo-wrap">
-      <img src="profile-photo.jpg" alt="Portrait of Kaja Gnanaeswaran">
-    </div>
-    <div class="body-content">
-      <p class="name">Kaja Gnanaeswaran</p>
-      <p class="title">Master of Health Informatics Candidate &mdash; University of Toronto</p>
-      <hr class="rule">
-      <p class="bio">Bridging clinical operations, digital product, and data strategy across health systems and health tech.</p>
+  <div class="page">
+    <header class="topbar">
+      <div class="mark"><span class="mark-icon">K</span><span>KAJA GNANAESWARAN</span></div>
+      <div class="availability">Open to meaningful opportunities</div>
+    </header>
 
-      <div class="actions">
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/kaja-gnanaeswaran-9670a3243/" target="_blank" rel="noopener" aria-label="View Kaja Gnanaeswaran's LinkedIn profile (opens in a new tab)">View LinkedIn</a>
-      </div>
-
-      <section class="resume-section" aria-labelledby="resume-heading">
-        <h2 id="resume-heading">R&eacute;sum&eacute;</h2>
-        <p>View or download my latest r&eacute;sum&eacute;.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="Kaja-Gnanaeswaran-Resume.pdf" target="_blank" rel="noopener" aria-label="View Kaja Gnanaeswaran's r&eacute;sum&eacute;">View R&eacute;sum&eacute;</a>
-          <a class="btn btn-secondary" href="Kaja-Gnanaeswaran-Resume.pdf" download="Kaja-Gnanaeswaran-Resume.pdf" aria-label="Download Kaja Gnanaeswaran's r&eacute;sum&eacute; as a PDF">Download R&eacute;sum&eacute;</a>
+    <main>
+      <section class="hero" aria-labelledby="intro-heading">
+        <div>
+          <p class="eyebrow">Health informatics · Product · Data</p>
+          <h1 id="intro-heading">Better systems.<br><em>Better care.</em></h1>
+          <p class="lead">I’m Kaja, a Master of Health Informatics candidate at the University of Toronto. I connect clinical operations, digital product, and data strategy to help health systems work smarter.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://www.linkedin.com/in/kaja-gnanaeswaran-9670a3243/" target="_blank" rel="noopener noreferrer" aria-label="Visit Kaja Gnanaeswaran on LinkedIn">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="#resume">View my résumé <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="profile-photo.jpg" alt="Portrait of Kaja Gnanaeswaran">
+          <div class="photo-label">TORONTO, ONTARIO</div>
         </div>
       </section>
 
-      <div class="footer">
-        <span>Toronto, Ontario</span>
-        <a href="mailto:kajamugi.08@gmail.com">kajamugi.08@gmail.com</a>
-      </div>
-    </div>
-  </main>
+      <section class="content-grid" aria-label="Profile details">
+        <article class="panel">
+          <h2>A little about me</h2>
+          <p>My work sits at the intersection of people, process, and technology. I’m interested in building thoughtful digital health experiences that turn complex data into clear, useful decisions for patients, providers, and organizations.</p>
+          <div class="tags" aria-label="Areas of interest">
+            <span class="tag">Digital health</span><span class="tag">Clinical operations</span><span class="tag">Data strategy</span><span class="tag">Product thinking</span>
+          </div>
+        </article>
+        <article class="panel resume-panel" id="resume">
+          <h2>Résumé</h2>
+          <p>Explore my experience, education, and the work I’m excited to contribute to next.</p>
+          <div class="resume-actions">
+            <a class="button button-primary" href="Kaja-Gnanaeswaran-Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="View Kaja Gnanaeswaran's résumé in a new tab">View résumé <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="Kaja-Gnanaeswaran-Resume.pdf" download="Kaja-Gnanaeswaran-Resume.pdf" aria-label="Download Kaja Gnanaeswaran's résumé as a PDF">Download PDF <span aria-hidden="true">↓</span></a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="contact">
+      <span>Let’s build a healthier digital future.</span>
+      <a href="mailto:kajamugi.08@gmail.com">kajamugi.08@gmail.com</a>
+    </footer>
+  </div>
 </body>
 </html>
